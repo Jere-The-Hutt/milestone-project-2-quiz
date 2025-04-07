@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Super Quiz</title>
+    <link href="assets/css/style.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1>Super Quiz</h1>
+
+        <!-- Start Screen -->
+        <div id="start-screen">
+            <button id="start-btn">Start Quiz</button>
+        </div>
+
+        <!-- Quiz Content (Initially Hidden) -->
+        <div id="wrapper" style="display: none;">
+            <div id="question"></div>
+            <button id="answer0" onclick="checkAnswer(0)"></button>
+            <button id="answer1" onclick="checkAnswer(1)"></button>
+            <button id="answer2" onclick="checkAnswer(2)"></button>
+            <button id="answer3" onclick="checkAnswer(3)"></button>
+            <p>SCORE: <span id="score">0</span></p>
+        </div>
+
+        <!-- End Screen  -->
+        <div id="playAgain" style="display: none;">
+            <p>In this section you can see how well the user scored and possibly "yes" and "no" buttons asking if the user wants to play again</p>
+        </div>
+    </div>
+
+    <script src="assets/js/script.js" type="text/javascript"></script>
+</body>
+</html>
