@@ -20,9 +20,11 @@ body {
 
 h1 {
     text-transform: uppercase;
+    margin-top: 25%;
     font-family: var(--primary-font);
     color: var(--secondary-color); 
     font-size: 100px;
+
 }
 
 h2 {
@@ -38,6 +40,11 @@ h2 {
     text-align: center;
 }
 
+#brain {
+    color: var(--highlight-color);
+    font-size: 50px;
+}
+
 /* Game area */
 
 .container {
@@ -46,6 +53,8 @@ h2 {
     border: 3px solid var(--secondary-color);
     text-align: center;
     padding: 10%;
+    margin-left: 10%;
+    margin-right: 10%;
 }
 
 /* Buttons */
