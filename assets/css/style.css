@@ -1,0 +1,66 @@
+/* Adobe Fonts import */
+@import url("https://use.typekit.net/bur5lun.css");
+
+/* CSS Variables */
+:root {
+    --primary-font: "puffin-arcade-chrome", sans-serif;
+    --secondary-font: "cubano-sharp", cursive;
+    --primary-color: #D16666; /* pink */
+    --secondary-color: #b6c649; /* lime green*/
+    --highlight-color: #2C4251; /* dark blue */
+    --highlight-color-light: #FFFFFF; /* white */
+}
+
+
+/* General styles */
+body {
+    background-color: var(--highlight-color);
+    
+}
+
+h1 {
+    text-transform: uppercase;
+    font-family: var(--primary-font);
+    color: var(--secondary-color); 
+    font-size: 100px;
+}
+
+h2 {
+    font-family: var(--secondary-font);
+    text-transform: uppercase;
+    font-size: 35px;
+    color: var(--highlight-color);
+}
+
+/* Header */
+
+#header {
+    text-align: center;
+}
+
+/* Game area */
+
+.container {
+    background: var(--primary-color);
+    border-radius: 25px;
+    border: 3px solid var(--secondary-color);
+    text-align: center;
+    padding: 10%;
+}
+
+/* Buttons */
+
+button {
+    background-color: var(--highlight-color-light);
+    font-family: var(--secondary-font);
+    font-size: 25px;
+    color: var(--highlight-color);
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+}
+
+button:hover {
+    background-color: var(--secondary-color);
+}
+
