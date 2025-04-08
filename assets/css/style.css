@@ -57,6 +57,25 @@ h2 {
     margin-right: 10%;
 }
 
+#question {
+    font-family: var(--secondary-font);
+    color: var(--highlight-color);
+    font-size: 30px;
+    margin-bottom: 2rem;
+}
+
+#score {
+    font-family: var(--secondary-font);
+    color: var(--secondary-color);
+    font-size: 25px;
+}
+
+#score-text {
+    font-family: var(--secondary-font);
+    color: var(--highlight-color);
+    font-size: 25px;
+}
+
 /* Buttons */
 
 button {

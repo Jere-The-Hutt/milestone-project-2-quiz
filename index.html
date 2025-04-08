@@ -11,6 +11,7 @@
     <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16x16.png">
 
+    <!-- Custom CSS -->
     <link href="assets/css/style.css" rel="stylesheet">
 </head>
 
@@ -20,11 +21,11 @@
         <h1>Super Quiz</h1>
     </header>
     <div class="container">
-        <i id="brain" class="fa-solid fa-brain"></i>
-        <h2>Test your knowledge!</h2>
 
         <!-- Start Screen -->
         <div id="start-screen">
+            <i id="brain" class="fa-solid fa-brain"></i>
+            <h2>Test your knowledge!</h2>
             <button id="start-btn">Start</button>
         </div>
 
@@ -35,7 +36,7 @@
             <button id="answer1" onclick="checkAnswer(1)"></button>
             <button id="answer2" onclick="checkAnswer(2)"></button>
             <button id="answer3" onclick="checkAnswer(3)"></button>
-            <p>SCORE: <span id="score">0</span></p>
+            <p id="score-text">SCORE: <span id="score">0</span></p>
         </div>
 
         <!-- End Screen -->
