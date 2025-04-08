@@ -15,12 +15,10 @@
 /* General styles */
 body {
     background-color: var(--highlight-color);
-    
 }
 
 h1 {
     text-transform: uppercase;
-    margin-top: 25%;
     font-family: var(--primary-font);
     color: var(--secondary-color); 
     font-size: 100px;
@@ -38,6 +36,9 @@ h2 {
 
 #header {
     text-align: center;
+    margin-bottom: 50px;
+    margin-top: 100px;
+    text-shadow: 2px 2px 5px #000000;
 }
 
 #brain {
@@ -52,16 +53,15 @@ h2 {
     border-radius: 25px;
     border: 3px solid var(--secondary-color);
     text-align: center;
-    padding: 10%;
-    margin-left: 10%;
-    margin-right: 10%;
+    padding: 10% 5%;
 }
 
 #question {
     font-family: var(--secondary-font);
     color: var(--highlight-color);
     font-size: 30px;
-    margin-bottom: 2rem;
+    text-align: center;
+    margin-bottom: 4rem;
 }
 
 #score {
@@ -83,6 +83,7 @@ h2 {
 #answer2,
 #answer3 {
     min-width: 200px;
+    margin-bottom: 10px;
 }
 
 button {
