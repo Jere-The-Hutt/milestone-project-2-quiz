@@ -78,6 +78,13 @@ h2 {
 
 /* Buttons */
 
+#answer0,
+#answer1,
+#answer2,
+#answer3 {
+    min-width: 200px;
+}
+
 button {
     background-color: var(--highlight-color-light);
     font-family: var(--secondary-font);
@@ -86,6 +93,7 @@ button {
     padding: 10px;
     border-radius: 10px;
     border: none;
+    margin: 4px;
 }
 
 button:hover {

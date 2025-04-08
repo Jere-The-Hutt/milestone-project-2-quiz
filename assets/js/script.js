@@ -50,6 +50,7 @@ document.addEventListener("DOMContentLoaded", () => {
         } else {
             // End of the quiz
             wrapper.style.display = "none";
+            // switches the display on
             playAgain.style.display = "inline-block";
             console.log("It's the end of the quiz!");
         }
@@ -59,12 +60,13 @@ document.addEventListener("DOMContentLoaded", () => {
      * function to check the answers and increment the score if correct
      */
     function checkAnswer(answerSelected) {
-        const correctAnswer = questions[currentQuestion].correct;
+        console.log("You picked: ", answerSelected);
+        correctAnswer = questions[currentQuestion].correct;
         if (answerSelected === correctAnswer) {
-            score++; // Increment score
+            score ++; // Increment score
             scoreArea.innerText = score; // Update score display
         }
-        currentQuestion++; // Shows next question
+        currentQuestion ++; // Shows next question
         startQuiz();
     }
 
@@ -75,7 +77,7 @@ document.addEventListener("DOMContentLoaded", () => {
         startQuiz(); // Start the quiz by loading the first question and answers
     });
 
-    // Event listeners for the answwer buttons
+    // Event listeners for the answer buttons
     answer0.addEventListener("click", () => checkAnswer(0));
     answer1.addEventListener("click", () => checkAnswer(1));
     answer2.addEventListener("click", () => checkAnswer(2));
