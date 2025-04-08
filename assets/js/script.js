@@ -22,6 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
             "answers": ["five", "zero", "one", "two"],
             "correct": 0
         },
+        // Update the placeholder questions and add new ones so there's 8 - 10 questions in total 
     ];
 
     // Function to load question and answers
@@ -73,4 +74,10 @@ document.addEventListener("DOMContentLoaded", () => {
         wrapper.style.display = "block"; // Show quiz wrapper
         startQuiz(); // Start the quiz by loading the first question and answers
     });
+
+    // Event listeners for the answwer buttons
+    answer0.addEventListener("click", () => checkAnswer(0));
+    answer1.addEventListener("click", () => checkAnswer(1));
+    answer2.addEventListener("click", () => checkAnswer(2));
+    answer3.addEventListener("click", () => checkAnswer(3));
 });
