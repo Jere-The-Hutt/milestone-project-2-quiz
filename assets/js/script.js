@@ -9,9 +9,33 @@ document.addEventListener("DOMContentLoaded", () => {
     const answer3 = document.getElementById("answer3");
     const scoreArea = document.getElementById("score");
     const playAgain = document.getElementById("playAgain");
+    const playAgainBtn = document.getElementById("playAgain-btn");
+
 
     let currentQuestion = 0;
+    let score = 0;
+
     const questions = [
+        {
+            "question": "Who makes the best books in Sweden?",
+            "answers": ["abc books", "massaman", "fred", "harry"],
+            "correct": 1
+        },
+        {
+            "question": "What is after 3?",
+            "answers": ["five", "zero", "one", "two"],
+            "correct": 0
+        },
+        {
+            "question": "Who makes the best books in Sweden?",
+            "answers": ["abc books", "massaman", "fred", "harry"],
+            "correct": 1
+        },
+        {
+            "question": "What is after 3?",
+            "answers": ["five", "zero", "one", "two"],
+            "correct": 0
+        },
         {
             "question": "Who makes the best books in Sweden?",
             "answers": ["abc books", "massaman", "fred", "harry"],
@@ -62,7 +86,7 @@ document.addEventListener("DOMContentLoaded", () => {
     function checkAnswer(answerSelected) {
         console.log("You picked: ", answerSelected);
         correctAnswer = questions[currentQuestion].correct;
-        if (answerSelected === correctAnswer) {
+        if (answerSelected == correctAnswer) {
             score ++; // Increment score
             scoreArea.innerText = score; // Update score display
         }
@@ -82,4 +106,15 @@ document.addEventListener("DOMContentLoaded", () => {
     answer1.addEventListener("click", () => checkAnswer(1));
     answer2.addEventListener("click", () => checkAnswer(2));
     answer3.addEventListener("click", () => checkAnswer(3));
+
+    // Event listener for the Play Again button
+    playAgainBtn.addEventListener("click", () => {
+        // Reset the quiz
+        currentQuestion = 0;
+        score = 0;
+        scoreArea.innerText = score; // Resets the score display
+        playAgain.style.display = "none"; // Hide the play again button
+        wrapper.style.display = "block"; // Show quiz wrapper
+        startQuiz(); // Starts a new game from the first question
+    });
 });
