@@ -78,6 +78,17 @@ h2 {
     font-size: 25px;
 }
 
+/* End Screen */
+
+#final-score {
+    font-family: var(--secondary-font);
+    font-size: 50px;
+    color: var(--highlight-color-light);
+    text-shadow: 2px 2px 5px #000000;
+    margin-top: 10px;
+    text-align: center;
+}
+
 /* Buttons */
 
 #answer0,
@@ -105,12 +116,12 @@ button:hover {
 
 .correct {
     background-color: green;
-    color: white;
+    color: var(--highlight-color-light);
 }
 
 .wrong {
     background-color: red;
-    color: white;
+    color: var(--highlight-color-light);
 }
 
 .disabled {

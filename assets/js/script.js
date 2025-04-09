@@ -51,14 +51,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
     /**
      * Function to load question
-     */ 
+     */
     function loadQuestion() {
         question.innerText = questions[currentQuestion].question;
     }
 
     /**
      * Function to load answers
-     */ 
+     */
     function loadAnswers() {
         const answers = questions[currentQuestion].answers;
         answer0.innerText = answers[0];
@@ -79,9 +79,24 @@ document.addEventListener("DOMContentLoaded", () => {
         } else {
             // End of the quiz
             wrapper.style.display = "none";
-            // switches the display on
             playAgain.style.display = "inline-block";
-            console.log("It's the end of the quiz!");
+
+            const finalScore = document.getElementById("final-score");
+            let message = "";
+
+            const percent = (score / questions.length) * 100;
+
+            if (percent === 100) {
+                message = "Perfect score! You're a nerd master!";
+            } else if (percent >= 80) {
+                message = "Great job!";
+            } else if (percent >= 50) {
+                message = "Pretty good! Try again to improve.";
+            } else {
+                message = "Better luck next time!";
+            }
+
+            finalScore.innerText = `You scored ${score} out of ${questions.length}.\n${message}`;
         }
     }
 
@@ -90,14 +105,14 @@ document.addEventListener("DOMContentLoaded", () => {
      */
     function checkAnswer(answerSelected) {
         const correctAnswer = questions[currentQuestion].correct;
-    
+
         const buttons = [answer0, answer1, answer2, answer3];
-    
+
         // Disables all options
         buttons.forEach((btn) => {
             btn.classList.add("disabled");
         });
-    
+
         // Colors the clicked answer
         if (answerSelected === correctAnswer) {
             buttons[answerSelected].classList.add("correct");
@@ -108,19 +123,19 @@ document.addEventListener("DOMContentLoaded", () => {
             // Shows the correct answer
             buttons[correctAnswer].classList.add("correct");
         }
-    
+
         // Wait a bit before moving to next question
         setTimeout(() => {
             // Remove added classes
             buttons.forEach((btn) => {
                 btn.classList.remove("correct", "wrong", "disabled");
             });
-    
+
             currentQuestion++;
             startQuiz();
         }, 1000); // Waits for 1 second before moving on to the next question
     }
-    
+
 
     // Event listener for Start button
     startBtn.addEventListener("click", () => {
