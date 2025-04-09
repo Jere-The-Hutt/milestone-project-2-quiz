@@ -84,15 +84,38 @@ document.addEventListener("DOMContentLoaded", () => {
      * function to check the answers and increment the score if correct
      */
     function checkAnswer(answerSelected) {
-        console.log("You picked: ", answerSelected);
-        correctAnswer = questions[currentQuestion].correct;
-        if (answerSelected == correctAnswer) {
-            score ++; // Increment score
-            scoreArea.innerText = score; // Update score display
+        const correctAnswer = questions[currentQuestion].correct;
+    
+        const buttons = [answer0, answer1, answer2, answer3];
+    
+        // Disables all options
+        buttons.forEach((btn) => {
+            btn.classList.add("disabled");
+        });
+    
+        // Colors the clicked answer
+        if (answerSelected === correctAnswer) {
+            buttons[answerSelected].classList.add("correct");
+            score++;
+            scoreArea.innerText = score;
+        } else {
+            buttons[answerSelected].classList.add("wrong");
+            // Shows the correct answer
+            buttons[correctAnswer].classList.add("correct");
         }
-        currentQuestion ++; // Shows next question
-        startQuiz();
+    
+        // Wait a bit before moving to next question
+        setTimeout(() => {
+            // Remove added classes
+            buttons.forEach((btn) => {
+                btn.classList.remove("correct", "wrong", "disabled");
+            });
+    
+            currentQuestion++;
+            startQuiz();
+        }, 1000); // Waits for 1 second before moving on to the next question
     }
+    
 
     // Event listener for Start button
     startBtn.addEventListener("click", () => {
