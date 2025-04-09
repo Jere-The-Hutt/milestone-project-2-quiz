@@ -49,11 +49,16 @@ document.addEventListener("DOMContentLoaded", () => {
         // Update the placeholder questions and add new ones so there's 8 - 10 questions in total 
     ];
 
-    // Function to load question and answers
+    /**
+     * Function to load question
+     */ 
     function loadQuestion() {
         question.innerText = questions[currentQuestion].question;
     }
 
+    /**
+     * Function to load answers
+     */ 
     function loadAnswers() {
         const answers = questions[currentQuestion].answers;
         answer0.innerText = answers[0];
