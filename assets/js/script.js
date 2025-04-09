@@ -17,34 +17,34 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const questions = [
         {
-            "question": "Who makes the best books in Sweden?",
-            "answers": ["abc books", "massaman", "fred", "harry"],
+            "question": "Which of the following is one of Darth Vader's most famous quotes?",
+            "answers": ["Luke, I am your father", "No, I am your father", "I am your father's cousin's nephew's former roommate", "The force will be with you"],
             "correct": 1
         },
         {
-            "question": "What is after 3?",
-            "answers": ["five", "zero", "one", "two"],
+            "question": "Which duo created the comic book hero, Captain America?",
+            "answers": ["Stan Lee & Steve Ditko", "Daryl Hall & John Oates", "Joe Simon & Jack Kirby", "Bob Kane & Bill Finger"],
+            "correct": 2
+        },
+        {
+            "question": "Which rock band recorded several songs for the 1986 fantasy action-adventure film Highlander?",
+            "answers": ["Queen", "Kiss", "AC/DC", "Def Leppard"],
             "correct": 0
         },
         {
-            "question": "Who makes the best books in Sweden?",
-            "answers": ["abc books", "massaman", "fred", "harry"],
-            "correct": 1
+            "question": "Before being replaced by Mark Ruffalo starting with The Avengers in 2012, what other actor first played the Hulk in the Marvel Cinematic Universe?",
+            "answers": ["Eric Bana", "Guy Pearce", "Jeremy Renner", "Edward Norton"],
+            "correct": 3
         },
         {
-            "question": "What is after 3?",
-            "answers": ["five", "zero", "one", "two"],
-            "correct": 0
+            "question": "Which video game won Game of the Year at The Game Awards 2023?",
+            "answers": ["Spider-Man 2", "Resident Evil 4", "Alan Wake 2", "Baldur's Gate 3"],
+            "correct": 3
         },
         {
-            "question": "Who makes the best books in Sweden?",
-            "answers": ["abc books", "massaman", "fred", "harry"],
-            "correct": 1
-        },
-        {
-            "question": "What is after 3?",
-            "answers": ["five", "zero", "one", "two"],
-            "correct": 0
+            "question": "What year was Frank Herbert's epic science fiction novel Dune published?",
+            "answers": ["1963", "1971", "1965", "1967"],
+            "correct": 2
         },
         // Update the placeholder questions and add new ones so there's 8 - 10 questions in total 
     ];
