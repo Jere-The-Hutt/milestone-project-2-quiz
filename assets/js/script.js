@@ -139,6 +139,10 @@ document.addEventListener("DOMContentLoaded", () => {
      * Function to start the quiz
      */
     function startQuiz() {
+
+        // Stop any existing timer
+        stopTimer();
+
         // Hide play again section
         playAgain.style.display = "none";
         if (currentQuestion < questions.length) {
@@ -228,6 +232,7 @@ document.addEventListener("DOMContentLoaded", () => {
         scoreArea.innerText = score; // Resets the score display
         playAgain.style.display = "none"; // Hide the play again button
         wrapper.style.display = "block"; // Show quiz wrapper
+        stopTimer(); // Stop any active timer
         startQuiz(); // Starts a new game from the first question
     });
 });
