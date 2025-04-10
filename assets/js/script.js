@@ -46,6 +46,26 @@ document.addEventListener("DOMContentLoaded", () => {
             "answers": ["1963", "1971", "1965", "1967"],
             "correct": 2
         },
+        {
+            "question": "In The Lord of the Rings, what is the Elvish name for Rivendell?",
+            "answers": ["Imladris", "Lothlórien", "Valinor", "Minas Tirith"],
+            "correct": 0
+        },
+        {
+            "question": "In the Watchmen graphic novel, what is the real name of Rorschach?",
+            "answers": ["Leroy Jenkins", "Edward Blake", "Walter Kovacs", "Jon Osterman"],
+            "correct": 2
+        },
+        {
+            "question": "In the Star Wars prequel trilogy, who originally commissioned the creation of the clone army?",
+            "answers": ["Jedi Master Sifo-Dyas", "Count Dooku", "Palpatine", "Mace Windu"],
+            "correct": 0
+        },
+        {
+            "question": "What is the name of the magical device used to store and view memories in the Harry Potter series?",
+            "answers": ["Horcrux", "Pensieve", "Deluminator", "Time-Turner"],
+            "correct": 1
+        },
         // Update the placeholder questions and add new ones so there's 8 - 10 questions in total 
     ];
 

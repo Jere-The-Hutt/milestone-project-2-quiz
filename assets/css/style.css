@@ -123,10 +123,16 @@ button:hover {
     background-color: green;
     color: var(--highlight-color-light);
 }
+button.correct {
+    box-shadow: 2px 2px 5px #000000;
+}
 
 .wrong {
     background-color: red;
     color: var(--highlight-color-light);
+}
+button.wrong {
+    box-shadow: 2px 2px 5px #000000;
 }
 
 .disabled {
