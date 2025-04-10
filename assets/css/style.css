@@ -65,7 +65,7 @@ h2 {
     text-shadow: 2px 2px 5px #000000;
     font-size: 30px;
     text-align: center;
-    margin-bottom: 4rem;
+    margin-bottom: 1rem;
 }
 
 #score {
@@ -78,6 +78,12 @@ h2 {
     font-family: var(--secondary-font);
     color: var(--highlight-color);
     font-size: 25px;
+}
+
+#timer {
+    font-family: var(--secondary-font);
+    color: var(--highlight-color);
+    font-size: 35px;
 }
 
 /* End Screen */
@@ -147,7 +153,7 @@ button.wrong {
         margin-bottom: 2rem;
     }
     #final-score {
-        font-size: 30px;
+        font-size: 25px;
         margin-top: 20px;
         text-align: center;
     }

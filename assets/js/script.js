@@ -96,11 +96,11 @@ document.addEventListener("DOMContentLoaded", () => {
     */
     function startTimer() {
         timeLeft = 15;
-        document.getElementById("timer").innerText = `Time remaining: ${timeLeft}`;
+        document.getElementById("timer").innerText = `${timeLeft}`;
 
         timerInterval = setInterval(() => {
             timeLeft--;
-            document.getElementById("timer").innerText = `Time remaining: ${timeLeft}`;
+            document.getElementById("timer").innerText = `${timeLeft}`;
 
             if (timeLeft <= 0) {
                 clearInterval(timerInterval);
