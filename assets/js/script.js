@@ -13,6 +13,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     let currentQuestion = 0;
+    let timerInterval;
+    let timeLeft = 15; // seconds per question
     let score = 0;
 
     const questions = [
@@ -87,6 +89,52 @@ document.addEventListener("DOMContentLoaded", () => {
         answer3.innerText = answers[3];
     }
 
+    /**
+    * Starts a countdown timer for the current question
+    * - Initializes the time limit
+    * - Automatically calls handleTimeout() when time runs out
+    */
+    function startTimer() {
+        timeLeft = 15;
+        document.getElementById("timer").innerText = `Time remaining: ${timeLeft}`;
+
+        timerInterval = setInterval(() => {
+            timeLeft--;
+            document.getElementById("timer").innerText = `Time remaining: ${timeLeft}`;
+
+            if (timeLeft <= 0) {
+                clearInterval(timerInterval);
+                handleTimeout();
+            }
+        }, 1000);
+    }
+
+    function stopTimer() {
+        clearInterval(timerInterval);
+    }
+
+    function handleTimeout() {
+        // Disable and show correct answer like a wrong choice
+        const correctAnswer = questions[currentQuestion].correct;
+        const buttons = [answer0, answer1, answer2, answer3];
+
+        buttons.forEach((btn, index) => {
+            btn.classList.add("disabled");
+            if (index === correctAnswer) {
+                btn.classList.add("correct");
+            }
+        });
+
+        // Move to next question after short delay
+        setTimeout(() => {
+            buttons.forEach((btn) => {
+                btn.classList.remove("correct", "wrong", "disabled");
+            });
+            currentQuestion++;
+            startQuiz();
+        }, 1600); // Waits for 1.6 second before moving on to the next question
+    }
+
     /** 
      * Function to start the quiz
      */
@@ -118,12 +166,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
             finalScore.innerText = `You scored ${score} out of ${questions.length}.\n${message}`;
         }
+        startTimer();
     }
 
     /**
      * function to check the answers and increment the score if correct
      */
     function checkAnswer(answerSelected) {
+        stopTimer();
         const correctAnswer = questions[currentQuestion].correct;
 
         const buttons = [answer0, answer1, answer2, answer3];
@@ -153,7 +203,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             currentQuestion++;
             startQuiz();
-        }, 1000); // Waits for 1 second before moving on to the next question
+        }, 1600); // Waits for 1.6 second before moving on to the next question
     }
 
 
