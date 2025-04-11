@@ -28,7 +28,7 @@ h1 {
 h2 {
     font-family: var(--secondary-font);
     text-transform: uppercase;
-    font-size: 35px;
+    font-size: 70px;
     color: var(--highlight-color-light);
     text-shadow: 2px 2px 5px #000000;
     margin-bottom: 2rem;
@@ -56,7 +56,7 @@ h2 {
     border-radius: 25px;
     border: 3px solid var(--secondary-color);
     text-align: center;
-    padding: 5% 5%;
+    padding: 6% 10% 6%;
 }
 
 #question {
@@ -93,8 +93,8 @@ h2 {
     font-size: 50px;
     color: var(--highlight-color-light);
     text-shadow: 2px 2px 5px #000000;
-    margin-top: 10px;
-    margin-bottom: 5px;
+    margin-top: 7px;
+    margin-bottom: 10px;
     text-align: center;
 }
 
@@ -118,6 +118,11 @@ button {
     border: none;
     margin-top: 20px;
     margin-bottom: 20px;
+}
+
+#playAgain-btn, #backHome-btn {
+    min-width: 250px;
+    margin: 20px 15px 20px;
 }
 
 button:hover {
@@ -160,11 +165,18 @@ button.wrong {
     #header {
         margin-bottom: 80px;
     }
+    h2 {
+        font-size: 30px;
+    }
     #answer0,
     #answer1,
     #answer2,
     #answer3 {
     min-width: 300px;
     margin-bottom: 10px;
+    }
+    #playAgain-btn, #backHome-btn {
+        min-width: 200px;
+        margin: 10px 15px 10px;
     }
 }
