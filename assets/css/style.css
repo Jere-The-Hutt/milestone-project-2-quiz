@@ -34,6 +34,11 @@ h2 {
     margin-bottom: 2rem;
 }
 
+.modal-content {
+    color: var(--highlight-color-light);
+    background-color: var(--highlight-color);
+}
+
 /* Header */
 
 #header {
@@ -125,6 +130,19 @@ button {
     margin: 20px 15px 20px;
 }
 
+.modal-btn {
+    margin-top: 3rem;
+}
+
+.btn-secondary {
+    font-family: var(--secondary-font);
+}
+
+.btn-close:hover, 
+.btn-secondary:hover {
+    background-color: var(--primary-color);
+}
+
 button:hover {
     background-color: var(--secondary-color);
     box-shadow: 2px 2px 5px #000000;
@@ -178,5 +196,8 @@ button.wrong {
     #playAgain-btn, #backHome-btn {
         min-width: 200px;
         margin: 10px 15px 10px;
+    }
+    .modal-btn {
+        margin-top: 1rem;
     }
 }
