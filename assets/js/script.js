@@ -196,17 +196,17 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         startTimer();
     }
-/**
- * Handles the user's answer selection for the current question.
- *
- * - Stops the active timer for the question.
- * - Disables all answer buttons to prevent additional clicks.
- * - Checks if the selected answer is correct:
- *   - If correct, highlights the button in green and increases the score.
- *   - If incorrect, highlights the selected button in red and shows the correct answer.
- * - Updates the score display.
- * - Waits briefly (1.6 seconds) before resetting the buttons and loading the next question.
- */
+    /**
+     * Handles the user's answer selection for the current question.
+     *
+     * - Stops the active timer for the question.
+     * - Disables all answer buttons to prevent additional clicks.
+     * - Checks if the selected answer is correct:
+     *   - If correct, highlights the button in green and increases the score.
+     *   - If incorrect, highlights the selected button in red and shows the correct answer.
+     * - Updates the score display.
+     * - Waits briefly (1.6 seconds) before resetting the buttons and loading the next question.
+     */
     function checkAnswer(answerSelected) {
         stopTimer();
         const correctAnswer = questions[currentQuestion].correct;
