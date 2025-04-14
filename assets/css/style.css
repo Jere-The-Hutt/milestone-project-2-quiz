@@ -1,6 +1,5 @@
 /* Adobe Fonts import */
 @import url("https://use.typekit.net/bur5lun.css");
-
 /* CSS Variables */
 :root {
     --primary-font: "puffin-arcade-chrome", sans-serif;
@@ -10,13 +9,10 @@
     --highlight-color: #2C4251; /* dark blue */
     --highlight-color-light: #FFFFFF; /* white */
 }
-
-
 /* General styles */
 body {
     background-color: var(--highlight-color);
 }
-
 h1 {
     text-transform: uppercase;
     font-family: var(--primary-font);
@@ -24,7 +20,6 @@ h1 {
     font-size: 100px;
     line-height: 70%;
 }
-
 h2 {
     font-family: var(--secondary-font);
     text-transform: uppercase;
@@ -33,29 +28,23 @@ h2 {
     text-shadow: 2px 2px 5px #000000;
     margin-bottom: 2rem;
 }
-
 .modal-content {
     color: var(--highlight-color-light);
     background-color: var(--highlight-color);
 }
-
 /* Header */
-
 #header {
     text-align: center;
     margin-bottom: 50px;
     margin-top: 70px;
     text-shadow: 2px 2px 5px #000000;
 }
-
 #brain {
     color: var(--highlight-color);
     font-size: 70px;
     margin: 2rem;
 }
-
 /* Game area */
-
 .container {
     background: var(--primary-color);
     border-radius: 25px;
@@ -63,7 +52,6 @@ h2 {
     text-align: center;
     padding: 6% 10% 6%;
 }
-
 #question {
     font-family: var(--secondary-font);
     color: var(--highlight-color-light);
@@ -72,27 +60,22 @@ h2 {
     text-align: center;
     margin-bottom: 1rem;
 }
-
 #score {
     font-family: var(--secondary-font);
     color: var(--secondary-color);
     font-size: 25px;
 }
-
 #score-text {
     font-family: var(--secondary-font);
     color: var(--highlight-color);
     font-size: 25px;
 }
-
 #timer {
     font-family: var(--secondary-font);
     color: var(--highlight-color);
     font-size: 35px;
 }
-
 /* End Screen */
-
 #final-score {
     font-family: var(--secondary-font);
     font-size: 50px;
@@ -102,9 +85,7 @@ h2 {
     margin-bottom: 10px;
     text-align: center;
 }
-
 /* Buttons */
-
 #answer0,
 #answer1,
 #answer2,
@@ -112,7 +93,6 @@ h2 {
     min-width: 400px;
     margin-bottom: 10px;
 }
-
 button {
     background-color: var(--highlight-color-light);
     font-family: var(--secondary-font);
@@ -124,30 +104,23 @@ button {
     margin-top: 20px;
     margin-bottom: 20px;
 }
-
+button:focus {
+    outline: none;
+}
+button:active {
+    background-color: none !important;
+    box-shadow: none !important;
+}
 #playAgain-btn, #backHome-btn {
     min-width: 250px;
     margin: 20px 15px 20px;
 }
-
 .modal-btn {
     margin-top: 3rem;
 }
-
 .btn-secondary {
     font-family: var(--secondary-font);
 }
-
-.btn-close:hover, 
-.btn-secondary:hover {
-    background-color: var(--primary-color);
-}
-
-button:hover {
-    background-color: var(--secondary-color);
-    box-shadow: 2px 2px 5px #000000;
-}
-
 .correct {
     background-color: green;
     color: var(--highlight-color-light);
@@ -155,7 +128,6 @@ button:hover {
 button.correct {
     box-shadow: 2px 2px 5px #000000;
 }
-
 .wrong {
     background-color: red;
     color: var(--highlight-color-light);
@@ -163,12 +135,10 @@ button.correct {
 button.wrong {
     box-shadow: 2px 2px 5px #000000;
 }
-
 .disabled {
     pointer-events: none;
     opacity: 0.6;
 }
-
 /* Media Queries */
 @media screen and (max-width: 480px) {
     .container {
@@ -201,3 +171,9 @@ button.wrong {
         margin-top: 1rem;
     }
 }
+@media (hover: hover) and (pointer: fine) {
+    button:hover {
+      background-color: var(--secondary-color);
+      box-shadow: 2px 2px 5px #000000;
+    }
+  }

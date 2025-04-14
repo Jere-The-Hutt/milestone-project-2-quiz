@@ -1,3 +1,4 @@
+/* jshint esversion: 6 */
 document.addEventListener("DOMContentLoaded", () => {
     const startBtn = document.getElementById("start-btn");
     const startScreen = document.getElementById("start-screen");
@@ -10,13 +11,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const scoreArea = document.getElementById("score");
     const playAgain = document.getElementById("playAgain");
     const playAgainBtn = document.getElementById("playAgain-btn");
-
-
     let currentQuestion = 0;
     let timerInterval;
     let timeLeft = 15; // seconds per question
     let score = 0;
-
     const questions = [
         {
             "question": "Which of the following is one of Darth Vader's most famous quotes?",
@@ -72,15 +70,21 @@ document.addEventListener("DOMContentLoaded", () => {
     ];
 
     /**
-     * Function to load question
-     */
+    * Loads and displays the current question text on the quiz interface.
+    *
+    * Updates the question element with the question corresponding to `currentQuestion`
+    * from the `questions` array.
+    */
     function loadQuestion() {
         question.innerText = questions[currentQuestion].question;
     }
 
     /**
-     * Function to load answers
-     */
+    * Loads and displays the answer options for the current question.
+    *
+    * Sets the text of the four answer buttons using the `answers` array
+    * of the current question in the `questions` array.
+    */
     function loadAnswers() {
         const answers = questions[currentQuestion].answers;
         answer0.innerText = answers[0];
@@ -88,7 +92,6 @@ document.addEventListener("DOMContentLoaded", () => {
         answer2.innerText = answers[2];
         answer3.innerText = answers[3];
     }
-
     /**
     * Starts a countdown timer for the current question
     * - Initializes the time limit
@@ -97,11 +100,9 @@ document.addEventListener("DOMContentLoaded", () => {
     function startTimer() {
         timeLeft = 15;
         document.getElementById("timer").innerText = `${timeLeft}`;
-
         timerInterval = setInterval(() => {
             timeLeft--;
             document.getElementById("timer").innerText = `${timeLeft}`;
-
             if (timeLeft <= 0) {
                 clearInterval(timerInterval);
                 handleTimeout();
@@ -109,22 +110,34 @@ document.addEventListener("DOMContentLoaded", () => {
         }, 1000);
     }
 
+    /**
+    * Stops the countdown timer for the current quiz question.
+    * 
+    * This function clears the interval set by `startTimer()` to prevent 
+    * the timer from continuing to count down after a question is answered
+    * or skipped.
+    */
     function stopTimer() {
         clearInterval(timerInterval);
     }
 
+    /**
+    * Handles the scenario when the timer runs out before the user selects an answer.
+    * 
+    * - Disables all answer buttons to prevent further interaction.
+    * - Highlights the correct answer.
+    * - Waits for a short delay (1.6 seconds) before automatically loading the next question.
+    */
     function handleTimeout() {
         // Disable and show correct answer like a wrong choice
         const correctAnswer = questions[currentQuestion].correct;
         const buttons = [answer0, answer1, answer2, answer3];
-
         buttons.forEach((btn, index) => {
             btn.classList.add("disabled");
             if (index === correctAnswer) {
                 btn.classList.add("correct");
             }
         });
-
         // Move to next question after short delay
         setTimeout(() => {
             buttons.forEach((btn) => {
@@ -134,30 +147,42 @@ document.addEventListener("DOMContentLoaded", () => {
             startQuiz();
         }, 1600); // Waits for 1.6 second before moving on to the next question
     }
-
-    /** 
-     * Function to start the quiz
+    /**
+     * Starts or continues the quiz by displaying the next question and resetting UI state.
+     *
+     * - Stops any running timer.
+     * - Hides the "Play Again" section if it's visible.
+     * - If there are questions left:
+     *   - Clears any previous answer button states (classes like "correct", "wrong", etc.).
+     *   - Loads the current question and its answers.
+     *   - Starts the countdown timer for the question.
+     * - If all questions have been answered:
+     *   - Hides the quiz interface.
+     *   - Shows the final score and a performance message.
+     *   - Displays the "Play Again" button.
      */
     function startQuiz() {
-
         // Stop any existing timer
         stopTimer();
-
         // Hide play again section
         playAgain.style.display = "none";
         if (currentQuestion < questions.length) {
+            // Clear previous button states (important for mobile)
+            const buttons = [answer0, answer1, answer2, answer3];
+            buttons.forEach((btn) => {
+                btn.classList.remove(
+                    "correct", "wrong", "disabled", "selected", "active");
+                btn.blur();
+            });
             loadQuestion();
             loadAnswers();
         } else {
             // End of the quiz
             wrapper.style.display = "none";
             playAgain.style.display = "inline-block";
-
             const finalScore = document.getElementById("final-score");
             let message = "";
-
             const percent = (score / questions.length) * 100;
-
             if (percent === 100) {
                 message = "Perfect score! You're a nerd master!";
             } else if (percent >= 80) {
@@ -167,26 +192,29 @@ document.addEventListener("DOMContentLoaded", () => {
             } else {
                 message = "Better luck next time!";
             }
-
             finalScore.innerText = `You scored ${score} out of ${questions.length}.\n${message}`;
         }
         startTimer();
     }
-
-    /**
-     * function to check the answers and increment the score if correct
-     */
+/**
+ * Handles the user's answer selection for the current question.
+ *
+ * - Stops the active timer for the question.
+ * - Disables all answer buttons to prevent additional clicks.
+ * - Checks if the selected answer is correct:
+ *   - If correct, highlights the button in green and increases the score.
+ *   - If incorrect, highlights the selected button in red and shows the correct answer.
+ * - Updates the score display.
+ * - Waits briefly (1.6 seconds) before resetting the buttons and loading the next question.
+ */
     function checkAnswer(answerSelected) {
         stopTimer();
         const correctAnswer = questions[currentQuestion].correct;
-
         const buttons = [answer0, answer1, answer2, answer3];
-
         // Disables all options
         buttons.forEach((btn) => {
             btn.classList.add("disabled");
         });
-
         // Colors the clicked answer
         if (answerSelected === correctAnswer) {
             buttons[answerSelected].classList.add("correct");
@@ -197,33 +225,27 @@ document.addEventListener("DOMContentLoaded", () => {
             // Shows the correct answer
             buttons[correctAnswer].classList.add("correct");
         }
-
         // Wait a bit before moving to next question
         setTimeout(() => {
             // Remove added classes
             buttons.forEach((btn) => {
                 btn.classList.remove("correct", "wrong", "disabled");
             });
-
             currentQuestion++;
             startQuiz();
         }, 1600); // Waits for 1.6 second before moving on to the next question
     }
-
-
     // Event listener for Start button
     startBtn.addEventListener("click", () => {
         startScreen.style.display = "none"; // Hide start screen
         wrapper.style.display = "block"; // Show quiz wrapper
         startQuiz(); // Start the quiz by loading the first question and answers
     });
-
     // Event listeners for the answer buttons
     answer0.addEventListener("click", () => checkAnswer(0));
     answer1.addEventListener("click", () => checkAnswer(1));
     answer2.addEventListener("click", () => checkAnswer(2));
     answer3.addEventListener("click", () => checkAnswer(3));
-
     // Event listener for the Play Again button
     playAgainBtn.addEventListener("click", () => {
         // Reset the quiz
